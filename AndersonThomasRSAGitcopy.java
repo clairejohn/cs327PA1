@@ -2,6 +2,7 @@ import java.util.Random;
 
 /**
  * @author Xunhua Wang. All rights reserved.
+ * @author Margaux Johnson
  * @date 02/16/2012; revised on 09/27/2018; further refined on 09/20/2019, 09/29/2020, 10/07/2022, 03/13/2023
  *
  */
@@ -50,6 +51,7 @@ public class AndersonThomasRSA
         int d = 1;
         int e = 1;
         int f = 0;
+        int originZ = inZ;
 
         while (inE != 0) {
             int g = inZ / inE;
@@ -68,7 +70,7 @@ public class AndersonThomasRSA
             return -1; // There is no modular inverse
         } else {
             if (c < 0) {
-                c += inZ; // Positive
+                c += originZ; // Positive
             }
             return c; // Return inverse of inE mod inZ
         }
@@ -93,7 +95,7 @@ public class AndersonThomasRSA
             // if it is not greater than 1, discard and generate random e that is
             // co-prime to z
          if (inE < 1) {
-             
+
          }
 //        keys[0] = inE;
 //        keys[1] = inP * inQ;
